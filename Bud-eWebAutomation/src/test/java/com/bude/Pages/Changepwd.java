@@ -20,7 +20,6 @@ public class Changepwd {
 		this.logger = logger;
 		PageFactory.initElements( driver, this);
 	}
-	
 	@FindBy(xpath = "//button[@class= 'p-splitbutton-menubutton p-button p-component p-button-icon-only']") WebElement Home_menuLogout;
 	@FindBy(xpath = "//a[@class='p-menuitem-link p-ripple ng-star-inserted']") WebElement lnkchangepwd;
 	@FindBy(xpath = "//input[@id='currentPassword']") WebElement Currentpwd;
