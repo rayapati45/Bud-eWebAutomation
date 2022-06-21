@@ -28,10 +28,10 @@ public class Changepwd {
 	@FindBy(xpath = "//button[contains(@class,'p-button-warning p-mr-2 p-button p-component')]") WebElement btnconfirmpwd;
 
 	public void ChangepwdforBude() throws InterruptedException {
-
+		Utilities.explicitWait(driver, Home_menuLogout, "clickable");
 		if(Home_menuLogout.isDisplayed()) {
-			Thread.sleep(1000);
 			Home_menuLogout.click();
+			Utilities.explicitWait(driver, lnkchangepwd, "clickable");
 			lnkchangepwd.click();
 			logger.log(LogStatus.PASS, "Successfully Clicked on Change Password");
 		}
@@ -60,9 +60,9 @@ public class Changepwd {
 
 	public WebDriver Changepassowrd(String Currentpwd,String Newpwd,String Confirmpwd) throws InterruptedException
 	{   
-		Utilities.implicitWait(driver,5);
+		Utilities.explicitWait(driver, Home_menuLogout, "clickable");
 		ChangepwdforBude();
-		Utilities.implicitWait(driver,10);
+		
 		SetCurrentpwd(Currentpwd);
 		Utilities.implicitWait(driver,10);
 		SetNewpwd(Newpwd);
@@ -70,7 +70,6 @@ public class Changepwd {
 		SetConfirmpwd(Confirmpwd);
 		Utilities.implicitWait(driver,10);
 		btnconfirmpwd();
-
 		return driver;
 
 	}

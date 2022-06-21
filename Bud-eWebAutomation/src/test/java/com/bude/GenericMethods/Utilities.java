@@ -27,21 +27,21 @@ public class Utilities {
 
 	//=========================================================================================================
 
-	public static boolean explicitWait(WebDriver driver, String locatorPath, String objectProperty)
+	public static boolean explicitWait(WebDriver driver, WebElement element, String objectProperty)
 	{
 		wait = new WebDriverWait(driver, Duration.ofSeconds(40));
 		switch (objectProperty) 
 		{
 		case "clickable":
-			elements = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locatorPath)));
+			elements = wait.until(ExpectedConditions.elementToBeClickable(element));
 			break;
 
 		case "visible":
-			elements = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locatorPath)));
+			//elements = wait.until(ExpectedConditions.visibilityOfAllElements(element);
 			break;
 
 		case "invisible":
-			element = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locatorPath)));
+			//element = wait.until(ExpectedConditions.invisibilityOfElementLocated(element));
 			break;
 		}
 		return elements != null;		
