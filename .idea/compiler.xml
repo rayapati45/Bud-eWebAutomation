@@ -9,8 +9,5 @@
         <module name="Bud-eWebAutomation" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Bud-eWebAutomation" target="8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
