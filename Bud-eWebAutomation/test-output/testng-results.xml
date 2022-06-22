@@ -2,23 +2,23 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-06-21T11:03:24 IST" name="Bud-e Web Testing" finished-at="2022-06-21T11:03:47 IST" duration-ms="23434">
+  <suite started-at="2022-06-22T11:29:53 IST" name="Bud-e Web Testing" finished-at="2022-06-22T11:30:16 IST" duration-ms="23488">
     <groups>
     </groups>
-    <test started-at="2022-06-21T11:03:24 IST" name="Bud-e Admin Test1" finished-at="2022-06-21T11:03:47 IST" duration-ms="23434">
+    <test started-at="2022-06-22T11:29:53 IST" name="Bud-e Admin Test1" finished-at="2022-06-22T11:30:16 IST" duration-ms="23488">
       <class name="com.bude.TestCases.TC_002_Logout">
-        <test-method is-config="true" signature="getBrowser(org.testng.ITestContext)[pri:0, instance:com.bude.TestCases.TC_002_Logout@624ea235]" started-at="2022-06-21T11:03:27 IST" name="getBrowser" finished-at="2022-06-21T11:03:30 IST" duration-ms="2103" status="PASS">
+        <test-method is-config="true" signature="getBrowser(org.testng.ITestContext)[pri:0, instance:com.bude.TestCases.TC_002_Logout@624ea235]" started-at="2022-06-22T11:29:57 IST" name="getBrowser" finished-at="2022-06-22T11:29:59 IST" duration-ms="2111" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@75023c53]]>
+                <![CDATA[org.testng.TestRunner@5e13f156]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getBrowser -->
-        <test-method signature="logoutFromBude(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.bude.TestCases.TC_002_Logout@624ea235]" started-at="2022-06-21T11:03:30 IST" name="logoutFromBude" finished-at="2022-06-21T11:03:42 IST" duration-ms="12522" status="PASS">
+        <test-method signature="logoutFromBude(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.bude.TestCases.TC_002_Logout@624ea235]" started-at="2022-06-22T11:29:59 IST" name="logoutFromBude" finished-at="2022-06-22T11:30:11 IST" duration-ms="12538" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -39,24 +39,24 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logoutFromBude -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.bude.TestCases.TC_002_Logout@624ea235]" started-at="2022-06-21T11:03:42 IST" name="tearDown" finished-at="2022-06-21T11:03:42 IST" duration-ms="237" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.bude.TestCases.TC_002_Logout@624ea235]" started-at="2022-06-22T11:30:11 IST" name="tearDown" finished-at="2022-06-22T11:30:11 IST" duration-ms="182" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.bude.TestCases.TC_002_Logout -->
       <class name="com.bude.TestCases.TC_003_ChangePassword">
-        <test-method is-config="true" signature="getBrowser(org.testng.ITestContext)[pri:0, instance:com.bude.TestCases.TC_003_ChangePassword@3932c79a]" started-at="2022-06-21T11:03:42 IST" name="getBrowser" finished-at="2022-06-21T11:03:44 IST" duration-ms="2134" status="PASS">
+        <test-method is-config="true" signature="getBrowser(org.testng.ITestContext)[pri:0, instance:com.bude.TestCases.TC_003_ChangePassword@3932c79a]" started-at="2022-06-22T11:30:11 IST" name="getBrowser" finished-at="2022-06-22T11:30:14 IST" duration-ms="2292" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@75023c53]]>
+                <![CDATA[org.testng.TestRunner@5e13f156]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getBrowser -->
-        <test-method signature="Changepwd(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.bude.TestCases.TC_003_ChangePassword@3932c79a]" started-at="2022-06-21T11:03:44 IST" name="Changepwd" finished-at="2022-06-21T11:03:47 IST" duration-ms="2445" status="PASS">
+        <test-method signature="Changepwd(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.bude.TestCases.TC_003_ChangePassword@3932c79a]" started-at="2022-06-22T11:30:14 IST" name="Changepwd" finished-at="2022-06-22T11:30:16 IST" duration-ms="2366" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -92,24 +92,24 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Changepwd -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.bude.TestCases.TC_003_ChangePassword@3932c79a]" started-at="2022-06-21T11:03:47 IST" name="tearDown" finished-at="2022-06-21T11:03:47 IST" duration-ms="196" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.bude.TestCases.TC_003_ChangePassword@3932c79a]" started-at="2022-06-22T11:30:16 IST" name="tearDown" finished-at="2022-06-22T11:30:16 IST" duration-ms="185" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.bude.TestCases.TC_003_ChangePassword -->
       <class name="com.bude.TestCases.TC_001_Login">
-        <test-method is-config="true" signature="getBrowser(org.testng.ITestContext)[pri:0, instance:com.bude.TestCases.TC_001_Login@5965d37]" started-at="2022-06-21T11:03:24 IST" name="getBrowser" finished-at="2022-06-21T11:03:27 IST" duration-ms="3078" status="PASS">
+        <test-method is-config="true" signature="getBrowser(org.testng.ITestContext)[pri:0, instance:com.bude.TestCases.TC_001_Login@5965d37]" started-at="2022-06-22T11:29:53 IST" name="getBrowser" finished-at="2022-06-22T11:29:56 IST" duration-ms="2986" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@75023c53]]>
+                <![CDATA[org.testng.TestRunner@5e13f156]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getBrowser -->
-        <test-method signature="loginToBude(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.bude.TestCases.TC_001_Login@5965d37]" started-at="2022-06-21T11:03:27 IST" name="loginToBude" finished-at="2022-06-21T11:03:27 IST" duration-ms="274" status="PASS">
+        <test-method signature="loginToBude(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.bude.TestCases.TC_001_Login@5965d37]" started-at="2022-06-22T11:29:56 IST" name="loginToBude" finished-at="2022-06-22T11:29:56 IST" duration-ms="374" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -130,7 +130,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginToBude -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.bude.TestCases.TC_001_Login@5965d37]" started-at="2022-06-21T11:03:27 IST" name="tearDown" finished-at="2022-06-21T11:03:27 IST" duration-ms="413" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.bude.TestCases.TC_001_Login@5965d37]" started-at="2022-06-22T11:29:56 IST" name="tearDown" finished-at="2022-06-22T11:29:57 IST" duration-ms="416" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
