@@ -72,7 +72,15 @@ public class Utilities {
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		File target = new File(System.getProperty("user.dir") + "\\Screenshots\\" + tname + ".png");
 		FileUtils.copyFile(source, target);
-		System.out.println("Screenshot taken");
+	}
+	
+	public String getScreenPath(WebDriver driver, String tname) throws IOException {
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		String dest = System.getProperty("user.dir") + "\\Screenshots\\" + tname + ".png";
+		File target = new File(dest);
+		FileUtils.copyFile(source, target);
+		return dest;
 	}
 	
 	//=========================================================================================================

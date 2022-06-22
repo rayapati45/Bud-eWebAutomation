@@ -1,5 +1,6 @@
 package com.bude.pages;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
@@ -94,13 +95,13 @@ public class CreateCityPage {
 		clickMenuCofig();
 		clickSunMenuCity();
 		clickBtnAddCity();
-		utilities.captureScreen(driver,"11");
 		setCityName(name);
 		setCityDesc(desc);
-		utilities.captureScreen(driver,"22");
 		clickBtnAddCityFinal();
 		Thread.sleep(2000);
-		utilities.captureScreen(driver,"33");
+		
+		String screenshotPath = utilities.getScreenPath(driver, "44");
+		logger.log(LogStatus.FAIL, logger.addScreenCapture(screenshotPath));
 		return driver;
 	}
 }
