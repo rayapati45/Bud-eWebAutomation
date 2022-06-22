@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import com.bude.genericmethods.Utilities;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -29,6 +30,8 @@ public class CreateCityPage {
 	@FindBy(xpath = "//input[@formcontrolname=\"cityName\"]") WebElement txt_cityName;
 	@FindBy(xpath = "//textarea[@formcontrolname=\"description\"]") WebElement txt_cityDescription;
 	@FindBy(xpath = "//button[@class='p-button p-button-warning p-component ng-star-inserted']") WebElement btn_AddCity;
+	
+	@FindBy(xpath = "//small[contains(text(),'required')]") WebElement error_inline;
 
 	public void clickMenuCofig() {
 		if(Utilities.explicitWait(driver, menu_Configurations, "clickable"))
@@ -60,35 +63,41 @@ public class CreateCityPage {
 			logger.log(LogStatus.FAIL, "Unable to find Add City Button");
 	}
 
-	public void setCityName(String name) {
+	public void setCityName(String name) throws InterruptedException {
 		logger.log(LogStatus.INFO, "City Name---- "+name);
-		//if(txt_cityName.isDisplayed())
-		//{
-		txt_cityName.sendKeys(name);
-		logger.log(LogStatus.PASS, "Entered City Name Successfully");
-		//}else {
-		//	logger.log(LogStatus.FAIL, "Failed to Enter Text in Name Field "+txt_cityName);
-		//}
+		Thread.sleep(1000);
+		if(txt_cityName.isDisplayed())
+		{
+			txt_cityName.sendKeys(name);
+			logger.log(LogStatus.PASS, "Entered City Name Successfully");
+		}else {
+			logger.log(LogStatus.FAIL, "Failed to Enter Text in Name Field "+txt_cityName);
+		}
 	}
 
 	public void setCityDesc(String desc) {
-		//if(txt_cityDescription.isDisplayed())
-		//{
-		txt_cityDescription.sendKeys(desc);
-		logger.log(LogStatus.PASS, "Entered City Description Successfully");
-		//}else {
-		//	logger.log(LogStatus.FAIL, "Failed to Enter Text in Description");
-		//}
+		if(txt_cityDescription.isDisplayed())
+		{
+			txt_cityDescription.sendKeys(desc);
+			logger.log(LogStatus.PASS, "Entered City Description Successfully");
+		}else {
+			logger.log(LogStatus.FAIL, "Failed to Enter Text in Description");
+		}
 	}
-	
+
 	public void clickBtnAddCityFinal() {
-		//if(Utilities.explicitWait(driver, btn_NewCity, "clickable"))
-		//{
+		if(btn_NewCity.isDisplayed())
+		{
 			btn_AddCity.click();
 			logger.log(LogStatus.PASS, "Clicked on Add City Successfully");
-		//}
-		//else
-			//logger.log(LogStatus.FAIL, "Unable to find Add City Button");
+			if(error_inline.isDisplayed())
+			{
+				logger.log(LogStatus.FAIL, "Mandatory Details missing to Create City");
+				Assert.assertFalse(error_inline.isDisplayed());
+			}
+		}
+		else
+			logger.log(LogStatus.FAIL, "Unable to find Add City Button");
 	}
 
 	public WebDriver createNewCity(String name,String desc) throws InterruptedException, IOException {
@@ -98,10 +107,19 @@ public class CreateCityPage {
 		setCityName(name);
 		setCityDesc(desc);
 		clickBtnAddCityFinal();
-		Thread.sleep(2000);
-		
-		String screenshotPath = utilities.getScreenPath(driver, "44");
-		logger.log(LogStatus.FAIL, logger.addScreenCapture(screenshotPath));
+		Utilities.implicitWait(driver, 3000);
+		String screenshotPath = utilities.getScreenPath(driver, "CityCreation");
+
+		if(driver.getPageSource().contains(name))
+		{
+			logger.log(LogStatus.PASS, "City Created Successfully");
+			logger.log(LogStatus.PASS, logger.addScreenCapture(screenshotPath));
+		}
+		else
+		{
+			logger.log(LogStatus.FAIL, "City Creation Failed");
+			logger.log(LogStatus.FAIL, logger.addScreenCapture(screenshotPath));
+		}
 		return driver;
 	}
 }
