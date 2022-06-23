@@ -112,7 +112,7 @@ public class CreateCityPage {
 		setCityDesc(desc);
 		clickBtnAddCityFinal();
 		Utilities.implicitWait(driver,1000);
-		String screenshotPath = utilities.getScreenPath(driver, "CityCreation");
+		String screenshotPath = utilities.getScreenPath(driver, "CityCreation1");
 
 		if(driver.getPageSource().contains(name))
 		{
@@ -127,7 +127,7 @@ public class CreateCityPage {
 			System.out.println(toast_error.getText());
 			logger.log(LogStatus.INFO, toast_success.getText());
 			logger.log(LogStatus.INFO, toast_error.getText());
-			String screenshotPath1 = utilities.getScreenPath(driver, "44");
+			String screenshotPath1 = utilities.getScreenPath(driver, "CityCreation2");
 			System.out.println(toast_success.getText());
 			System.out.println(toast_error.getText());
 			logger.log(LogStatus.INFO, toast_success.getText());
