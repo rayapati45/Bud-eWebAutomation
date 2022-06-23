@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.net.PortUnreachableException;
+
 public class Inventory_Sims {
 
     private WebDriver driver;
@@ -19,7 +21,7 @@ public class Inventory_Sims {
         PageFactory.initElements( driver, this);
     }
 
-    @FindBy(xpath = "Inventory")  WebElement Inventoery;
+
     @FindBy(xpath = "//a[@class='ng-tns-c134-19 ng-star-inserted active-menuitem-routerlink']") WebElement SIM_Cards;
     @FindBy(xpath = "//button[@class='p-button-success p-mr-2 p-button p-component']") WebElement btnAdd_sim;
     @FindBy(xpath = "//input[@class='add-input ng-untouched ng-pristine ng-invalid' and @formcontrolname='number']") WebElement Mobilenumber;
@@ -31,16 +33,24 @@ public class Inventory_Sims {
     @FindBy(xpath = "//button[@class='p-button-primary p-button p-component']") WebElement btn_CreateSim;
 
 
-    public void Clickinventory(){
-        if (Inventoery.isDisplayed())
-        {
-            Inventoery.click();
+
+
+        public void ClickSims(){
+           if(SIM_Cards.isDisplayed())
+            {
+                SIM_Cards.click();
+                if (btnAdd_sim.isDisplayed())
+                {
+                    btnAdd_sim.click();
+                }
+            }
+            else
+            {
+                logger.log(LogStatus.FAIL, "Failed to Click SimCards:"+SIM_Cards);
+            }
         }
-        else
-        {
-            logger.log(LogStatus.FAIL, "Failed to Click Inventory: ");
-        }
+
+
     }
 
 
-}
