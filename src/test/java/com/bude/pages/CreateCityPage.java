@@ -31,8 +31,11 @@ public class CreateCityPage {
 	@FindBy(xpath = "//input[@formcontrolname=\"cityName\"]") WebElement txt_cityName;
 	@FindBy(xpath = "//textarea[@formcontrolname=\"description\"]") WebElement txt_cityDescription;
 	@FindBy(xpath = "//button[@class='p-button p-button-warning p-component ng-star-inserted']") WebElement btn_AddCity;
-	
+
 	@FindBy(xpath = "//small[contains(text(),'required')]") WebElement error_inline;
+
+	@FindBy(xpath = "//div[contains(text(),'Error')]") WebElement toast_error;
+	@FindBy(xpath = "//div[contains(text(),'Success')]") WebElement toast_success;
 
 	public void clickMenuCofig() {
 		if(Utilities.explicitWait(driver, menu_Configurations, "clickable"))
@@ -120,6 +123,26 @@ public class CreateCityPage {
 		{
 			logger.log(LogStatus.FAIL, "City Creation Failed");
 			logger.log(LogStatus.FAIL, logger.addScreenCapture(screenshotPath));
+			System.out.println(toast_success.getText());
+			System.out.println(toast_error.getText());
+			logger.log(LogStatus.INFO, toast_success.getText());
+			logger.log(LogStatus.INFO, toast_error.getText());
+			String screenshotPath1 = utilities.getScreenPath(driver, "44");
+			System.out.println(toast_success.getText());
+			System.out.println(toast_error.getText());
+			logger.log(LogStatus.INFO, toast_success.getText());
+			logger.log(LogStatus.INFO, toast_error.getText());
+			if(toast_error.isDisplayed())
+			{
+				logger.log(LogStatus.FAIL, "City Creation Failed");
+				logger.log(LogStatus.FAIL, logger.addScreenCapture(screenshotPath1));
+			}
+			if(toast_success.getText() != null)
+			{
+				logger.log(LogStatus.PASS, "City Created Successfully");
+				logger.log(LogStatus.PASS, logger.addScreenCapture(screenshotPath1));
+			}
+			
 		}
 		return driver;
 	}

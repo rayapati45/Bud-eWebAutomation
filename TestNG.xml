@@ -7,13 +7,13 @@
 		<parameter name="username" value="bude" />
 		<parameter name="testname" value="Test2" />
 		<parameter name="browser" value="chrome" />
+		<parameter name="aut" value="chrome" />
 		<parameter name="Currentpwd" value="P@$$w0rd.1" />
 		<parameter name="newpwd" value="P@$$w0rd.1" />
 		<parameter name="Confirmpwd" value="P@$$w0rd.1" />
 
 		<classes>
-			<class name="com.bude.testcases.TC_004_CreateCity" />
+			<class name="com.bude.testcases.TC_001_Login" />
 		</classes>
-
 	</test>
 </suite>

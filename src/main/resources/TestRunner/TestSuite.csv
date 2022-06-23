@@ -1,0 +1,6 @@
+TestName,TestClass,Execution,ExecutionType,Browser,BrowserVersion,OS,OSVersion
+Login,com.bude.testcases.TC_001_Login,Yes,Chrome,Chrome,75,Windows,7
+Logout,com.bude.testcases.TC_002_Logout,Yes,Chrome,Chrome,75,Windows,7
+ChangePassword,com.bude.testcases.TC_003_ChangePassword,Yes,Chrome,Chrome,75,Windows,7
+CreateCity,com.bude.testcases.TC_004_CreateCity,Yes,Chrome,Chrome,75,Windows,7
+CreateRiderGroup,com.bude.testcases.TC_005_CreateRiderGroup,Yes,Chrome,Chrome,75,Windows,7
