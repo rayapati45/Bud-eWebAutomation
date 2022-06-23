@@ -16,7 +16,7 @@ public class Inventory_Sims {
 
     private WebDriver driver;
     ExtentTest logger;
-   Inventory inventory = new Inventory(driver,logger);
+    Inventory inventory = new Inventory(driver,logger);
     Utilities utilities = new Utilities();
 
     public Inventory_Sims(WebDriver driver, ExtentTest logger) {
@@ -40,17 +40,17 @@ public class Inventory_Sims {
 
 
 
-        public void clickbtnAdd_sim(){
-            if (btnAdd_sim.isDisplayed())
-                {
-                    btnAdd_sim.click();
-                    logger.log(LogStatus.PASS, "Clicked on Add Sim Successfully");
-                }
-            else
-            {
-                logger.log(LogStatus.FAIL, "Failed to Click ADD Sim:"+btnAdd_sim);
-            }
+    public void clickbtnAdd_sim(){
+        if (btnAdd_sim.isDisplayed())
+        {
+            btnAdd_sim.click();
+            logger.log(LogStatus.PASS, "Clicked on Add Sim Successfully");
         }
+        else
+        {
+            logger.log(LogStatus.FAIL, "Failed to Click ADD Sim:"+btnAdd_sim);
+        }
+    }
 
     public void enterMobilenumber(String EnterMobilenumber){
         if (Mobilenumber.isDisplayed())
@@ -152,6 +152,6 @@ public class Inventory_Sims {
         return driver;
     }
 
-    }
+}
 
 
