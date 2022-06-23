@@ -15,6 +15,6 @@ public class TC_004_CreateCity extends BaseTest{
 		LoginPage lpage = new LoginPage(driver,logger);
 		driver = lpage.login(username,password);
 		CreateCityPage newCity = new CreateCityPage(driver,logger);
-		newCity.createNewCity("Automation","Automation1 by Venkat");
+		newCity.createNewCity("AAABBC","Automation1 by Venkat");
 	}
 }
