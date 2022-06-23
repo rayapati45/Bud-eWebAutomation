@@ -12,6 +12,5 @@ public class TC_001_Login extends BaseTest{
 	public void loginToBude(String username, String password, String browser) throws Exception {
 		LoginPage lpage = new LoginPage(driver,logger);
 		lpage.login(username,password);
-		
 	}
 }
