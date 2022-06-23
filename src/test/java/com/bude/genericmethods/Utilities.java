@@ -15,20 +15,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
 //Methods List
 //------------explicitWait
 //------------implicitWait
+//------------scrollToElement
+//------------captureScreen
+//------------getScreenPath
+//------------
 
 public class Utilities {
 
 	static WebDriverWait wait;
 	static WebElement elements;	
 	static boolean element;	
-	private enum  Property 
-	{
-		clickable, visible,invisible,display;
-	}
 
 	//=========================================================================================================
 
@@ -57,6 +56,7 @@ public class Utilities {
 	public static void implicitWait(WebDriver driver,int Secs)
 	{
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Secs));
+		//driver.manage().timeouts().implicitlyWait(i);
 	}
 
 	//=========================================================================================================
@@ -67,12 +67,16 @@ public class Utilities {
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 	
+	//=========================================================================================================
+	
 	public void captureScreen(WebDriver driver, String tname) throws IOException {
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		File target = new File(System.getProperty("user.dir") + "\\Screenshots\\" + tname + ".png");
 		FileUtils.copyFile(source, target);
 	}
+	
+	//=========================================================================================================
 	
 	public String getScreenPath(WebDriver driver, String tname) throws IOException {
 		TakesScreenshot ts = (TakesScreenshot) driver;
@@ -85,8 +89,15 @@ public class Utilities {
 	
 	//=========================================================================================================
 	
+	
+	
 	//=========================================================================================================
+	
+	
+	
 	//=========================================================================================================
-	//=========================================================================================================
+	
+	
+	
 	//=========================================================================================================
 }

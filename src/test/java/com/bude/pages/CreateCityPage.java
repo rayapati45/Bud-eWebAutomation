@@ -2,6 +2,7 @@ package com.bude.pages;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Time;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -107,7 +108,7 @@ public class CreateCityPage {
 		setCityName(name);
 		setCityDesc(desc);
 		clickBtnAddCityFinal();
-		Utilities.implicitWait(driver, 3000);
+		Utilities.implicitWait(driver,1000);
 		String screenshotPath = utilities.getScreenPath(driver, "CityCreation");
 
 		if(driver.getPageSource().contains(name))
