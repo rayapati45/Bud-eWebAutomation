@@ -1,20 +1,18 @@
 package com.bude.pages;
 
-
-
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.bude.genericmethods.Extent_Reports;
+import com.bude.genericmethods.Utilities;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 public class LoginPage {
 
 	private WebDriver driver;
+	Utilities utilities = new Utilities();
 	ExtentTest logger;
 
 	public LoginPage(WebDriver driver, ExtentTest logger) {
@@ -51,11 +49,22 @@ public class LoginPage {
 			logger.log(LogStatus.FAIL, "Failed to Enter Username: "+password);
 		}
 	}
-	public void clkLogin() throws Exception {
+	public void clkLogin(String username,String password) throws Exception {
 		if(btnLogin.isDisplayed() && btnLogin.isEnabled())
 		{
 			btnLogin.click();
-			logger.log(LogStatus.PASS, "Successfully Clicked Login Button");
+			logger.log(LogStatus.PASS, "Clicked Login Button");
+			Thread.sleep(2000);
+			String screenshotPath = utilities.getScreenPath(driver, "CityCreation");
+			if(driver.getCurrentUrl().contains("/#/main/")){
+				logger.log(LogStatus.PASS, "Login is Successfull");
+				logger.log(LogStatus.PASS, logger.addScreenCapture(screenshotPath));
+			}
+			else {
+				
+				logger.log(LogStatus.FAIL, "Failed to Login with username: "+username+" & password: "+password);
+				logger.log(LogStatus.FAIL, logger.addScreenCapture(screenshotPath));
+			}
 		}
 		else
 		{
@@ -67,7 +76,7 @@ public class LoginPage {
 	{
 		setUsername(username);
 		setPassword(password);
-		clkLogin();
+		clkLogin(username,password);
 		return driver;
 	}
 

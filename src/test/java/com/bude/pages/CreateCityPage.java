@@ -2,11 +2,13 @@ package com.bude.pages;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Time;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import com.bude.genericmethods.Utilities;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -29,6 +31,8 @@ public class CreateCityPage {
 	@FindBy(xpath = "//input[@formcontrolname=\"cityName\"]") WebElement txt_cityName;
 	@FindBy(xpath = "//textarea[@formcontrolname=\"description\"]") WebElement txt_cityDescription;
 	@FindBy(xpath = "//button[@class='p-button p-button-warning p-component ng-star-inserted']") WebElement btn_AddCity;
+
+	@FindBy(xpath = "//small[contains(text(),'required')]") WebElement error_inline;
 
 	@FindBy(xpath = "//div[contains(text(),'Error')]") WebElement toast_error;
 	@FindBy(xpath = "//div[contains(text(),'Success')]") WebElement toast_success;
@@ -90,6 +94,11 @@ public class CreateCityPage {
 		{
 			btn_AddCity.click();
 			logger.log(LogStatus.PASS, "Clicked on Add City Successfully");
+			if(error_inline.isDisplayed())
+			{
+				logger.log(LogStatus.FAIL, "Mandatory Details missing to Create City");
+				Assert.assertFalse(error_inline.isDisplayed());
+			}
 		}
 		else
 			logger.log(LogStatus.FAIL, "Unable to find Add City Button");
@@ -102,24 +111,38 @@ public class CreateCityPage {
 		setCityName(name);
 		setCityDesc(desc);
 		clickBtnAddCityFinal();
-		System.out.println(toast_success.getText());
-		System.out.println(toast_error.getText());
-		logger.log(LogStatus.INFO, toast_success.getText());
-		logger.log(LogStatus.INFO, toast_error.getText());
-		String screenshotPath = utilities.getScreenPath(driver, "44");
-		System.out.println(toast_success.getText());
-		System.out.println(toast_error.getText());
-		logger.log(LogStatus.INFO, toast_success.getText());
-		logger.log(LogStatus.INFO, toast_error.getText());
-		if(toast_error.isDisplayed())
-		{
-			logger.log(LogStatus.FAIL, "City Creation Failed");
-			logger.log(LogStatus.FAIL, logger.addScreenCapture(screenshotPath));
-		}
-		if(toast_success.getText() != null)
+		Utilities.implicitWait(driver,1000);
+		String screenshotPath = utilities.getScreenPath(driver, "CityCreation1");
+
+		if(driver.getPageSource().contains(name))
 		{
 			logger.log(LogStatus.PASS, "City Created Successfully");
 			logger.log(LogStatus.PASS, logger.addScreenCapture(screenshotPath));
+		}
+		else
+		{
+			logger.log(LogStatus.FAIL, "City Creation Failed");
+			logger.log(LogStatus.FAIL, logger.addScreenCapture(screenshotPath));
+			System.out.println(toast_success.getText());
+			System.out.println(toast_error.getText());
+			logger.log(LogStatus.INFO, toast_success.getText());
+			logger.log(LogStatus.INFO, toast_error.getText());
+			String screenshotPath1 = utilities.getScreenPath(driver, "CityCreation2");
+			System.out.println(toast_success.getText());
+			System.out.println(toast_error.getText());
+			logger.log(LogStatus.INFO, toast_success.getText());
+			logger.log(LogStatus.INFO, toast_error.getText());
+			if(toast_error.isDisplayed())
+			{
+				logger.log(LogStatus.FAIL, "City Creation Failed");
+				logger.log(LogStatus.FAIL, logger.addScreenCapture(screenshotPath1));
+			}
+			if(toast_success.getText() != null)
+			{
+				logger.log(LogStatus.PASS, "City Created Successfully");
+				logger.log(LogStatus.PASS, logger.addScreenCapture(screenshotPath1));
+			}
+			
 		}
 		return driver;
 	}
